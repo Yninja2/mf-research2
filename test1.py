@@ -94,9 +94,9 @@ st.write("PMDAのWeb公開資料にから回答を引き出します。")
 # if index is None:
 #     st.warning("Please enter your api key first.")
 
-text = st.text_input("Query text:", value="What did the author do growing up?")
+text = st.text_input("質問文:", value="What did the author do growing up?")
 
-if st.button("Run Query") and text is not None:
+if st.button("回答") and text is not None:
     response = query_index(index, text)
     st.markdown(response)
 
