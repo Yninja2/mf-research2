@@ -83,9 +83,8 @@ index = initialize_index(index_name, documents_folder)
 #query_index(index, 'summarize this document')
 
 st.title("🦙 Llama Index Demo 🦙")
-st.header("Welcome to the Llama Index Streamlit Demo")
-st.write(
-    "Enter a query about Paul Graham's essays. You can check out the original essay [here](https://raw.githubusercontent.com/jerryjliu/llama_index/main/examples/paul_graham_essay/data/paul_graham_essay.txt). Your query will be answered using the essay as context, using embeddings from text-ada-002 and LLM completions from gpt-3.5-turbo. You can read more about Llama Index and how this works in [our docs!](https://gpt-index.readthedocs.io/en/latest/index.html)"
+st.header("Welcome to MF research Demo")
+st.write("PMDAのWeb公開資料にから回答を引き出します。")
 )
 
 #index = None
@@ -93,10 +92,8 @@ st.write(
 # if api_key:
 #     os.environ["OPENAI_API_KEY"] = api_key
 #     index = initialize_index(index_name, documents_folder)
-
-
-if index is None:
-    st.warning("Please enter your api key first.")
+# if index is None:
+#     st.warning("Please enter your api key first.")
 
 text = st.text_input("Query text:", value="What did the author do growing up?")
 
