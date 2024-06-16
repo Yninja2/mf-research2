@@ -22,9 +22,8 @@ documents_folder = "./documents/MF"
 # os.environ["OPENAI_API_KEY"] = api_key
 # #index = initialize_index(index_name, documents_folder)
 
-key="OPENAI_AI_KEY"
 try:
-    value = os.environ[key]
+    value = os.environ["OPENAI_API_KEY"]
     print(f"キー '{key}' の値: {value}")
 except KeyError:
     print(f"キー '{key}' は環境変数に存在しません。")
