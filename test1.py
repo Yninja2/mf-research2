@@ -22,10 +22,19 @@ documents_folder = "./documents/MF"
 # os.environ["OPENAI_API_KEY"] = api_key
 # #index = initialize_index(index_name, documents_folder)
 
-print(os.environ["OPENAI_AI_KEY"])
-if os.environ["OPENAI_API_KEY"] == None:
-    api_key = st.secrets["api_key"]
-    os.environ["OPENAI_API_KEY"] = api_key
+key="OPENAI_AI_KEY"
+try:
+    value = os.environ[key]
+    print(f"キー '{key}' の値: {value}")
+except KeyError:
+    print(f"キー '{key}' は環境変数に存在しません。")
+    os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
+
+
+# print(os.environ["OPENAI_AI_KEY"])
+# if os.environ["OPENAI_API_KEY"] == None:
+#     api_key = st.secrets["api_key"]
+#     os.environ["OPENAI_API_KEY"] = api_key
 
 token_counter = TokenCountingHandler(
     tokenizer=tiktoken.encoding_for_model("gpt-3.5-turbo").encode
