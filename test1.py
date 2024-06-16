@@ -22,6 +22,7 @@ documents_folder = "./documents/MF"
 # os.environ["OPENAI_API_KEY"] = api_key
 # #index = initialize_index(index_name, documents_folder)
 
+print(os.environ["OPENAI_AI_KEY"])
 if os.environ["OPENAI_API_KEY"] == None:
     api_key = st.secrets["api_key"]
     os.environ["OPENAI_API_KEY"] = api_key
