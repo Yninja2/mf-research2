@@ -86,7 +86,7 @@ index = initialize_index(index_name, documents_folder)
 #query_index(index, 'summarize this document')
 
 #st.title("🦙 Llama Index Demo 🦙")
-st.title("Welcome to MF research Demo")
+st.title("Welcome to MF research Demo１")
 st.write("PMDAのWeb公開資料にから回答を引き出します。")
 
 ## test
