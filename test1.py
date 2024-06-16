@@ -24,9 +24,9 @@ documents_folder = "./documents/MF"
 
 try:
     value = os.environ["OPENAI_API_KEY"]
-    print(f"キー '{key}' の値: {value}")
+    print(f"キー の値: {value}")
 except KeyError:
-    print(f"キー '{key}' は環境変数に存在しません。")
+    print(f"キー は環境変数に存在しません。")
     os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
 
 
