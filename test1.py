@@ -86,7 +86,7 @@ index = initialize_index(index_name, documents_folder)
 st.tilte("Welcome to MF research Demo")
 st.write("PMDAのWeb公開資料にから回答を引き出します。")
 
-##
+## test
 #index = None
 # api_key = st.text_input("Enter your OpenAI API key here:", type="password")
 # if api_key:
