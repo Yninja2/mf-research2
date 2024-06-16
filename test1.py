@@ -18,6 +18,11 @@ from llama_index.llms.openai import OpenAI
 index_name = "./saved_index"
 documents_folder = "./documents/MF"
 
+api_key = st.secrets["api_key"]
+os.environ["OPENAI_API_KEY"] = api_key
+#index = initialize_index(index_name, documents_folder)
+
+
 token_counter = TokenCountingHandler(
     tokenizer=tiktoken.encoding_for_model("gpt-3.5-turbo").encode
 )
@@ -84,10 +89,10 @@ st.write(
 )
 
 #index = None
-api_key = st.text_input("Enter your OpenAI API key here:", type="password")
-if api_key:
-    os.environ["OPENAI_API_KEY"] = api_key
-    index = initialize_index(index_name, documents_folder)
+# api_key = st.text_input("Enter your OpenAI API key here:", type="password")
+# if api_key:
+#     os.environ["OPENAI_API_KEY"] = api_key
+#     index = initialize_index(index_name, documents_folder)
 
 
 if index is None:
