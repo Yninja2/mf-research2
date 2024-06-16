@@ -85,7 +85,6 @@ index = initialize_index(index_name, documents_folder)
 st.title("🦙 Llama Index Demo 🦙")
 st.header("Welcome to MF research Demo")
 st.write("PMDAのWeb公開資料にから回答を引き出します。")
-)
 
 #index = None
 # api_key = st.text_input("Enter your OpenAI API key here:", type="password")
