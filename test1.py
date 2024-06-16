@@ -18,10 +18,13 @@ from llama_index.llms.openai import OpenAI
 index_name = "./saved_index"
 documents_folder = "./documents/MF"
 
-api_key = st.secrets["api_key"]
-os.environ["OPENAI_API_KEY"] = api_key
-#index = initialize_index(index_name, documents_folder)
+# api_key = st.secrets["api_key"]
+# os.environ["OPENAI_API_KEY"] = api_key
+# #index = initialize_index(index_name, documents_folder)
 
+if os.environ["OPENAI_API_KEY"] == None:
+    api_key = st.secrets["api_key"]
+    os.environ["OPENAI_API_KEY"] = api_key
 
 token_counter = TokenCountingHandler(
     tokenizer=tiktoken.encoding_for_model("gpt-3.5-turbo").encode
@@ -83,7 +86,7 @@ index = initialize_index(index_name, documents_folder)
 #query_index(index, 'summarize this document')
 
 #st.title("🦙 Llama Index Demo 🦙")
-st.tilte("Welcome to MF research Demo")
+st.title("Welcome to MF research Demo")
 st.write("PMDAのWeb公開資料にから回答を引き出します。")
 
 ## test
