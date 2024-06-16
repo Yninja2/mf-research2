@@ -82,8 +82,8 @@ def query_index(_index, query_text):
 index = initialize_index(index_name, documents_folder)
 #query_index(index, 'summarize this document')
 
-st.title("🦙 Llama Index Demo 🦙")
-st.header("Welcome to MF research Demo")
+#st.title("🦙 Llama Index Demo 🦙")
+st.tilte("Welcome to MF research Demo")
 st.write("PMDAのWeb公開資料にから回答を引き出します。")
 
 #index = None
@@ -94,7 +94,7 @@ st.write("PMDAのWeb公開資料にから回答を引き出します。")
 # if index is None:
 #     st.warning("Please enter your api key first.")
 
-text = st.text_input("質問文:", value="What did the author do growing up?")
+text = st.text_input("質問文:", value="MFの申請に必要な資料は何ですか。")
 
 if st.button("回答") and text is not None:
     response = query_index(index, text)
