@@ -20,7 +20,7 @@ def initialize_index():#index_name, documents_folder):
 query_engine = initialize_index()
 
 st.title("Welcome to MF research Demo11")
-st.write("PMDAのWeb公開資料にから回答を引き出します。")
+st.write("PMDAのWeb公開資料から回答を引き出します。")
 
 text = st.text_input("質問文:", value="MFの申請時にヒト幹細胞を原材料として使用する際の注意点は?")
 
