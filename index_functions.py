@@ -71,12 +71,14 @@ class Index_function:
 
     def make_query_engine(self):
         if os.path.exists(self.index_name):
+            print('loding index .....')
             index = load_index_from_storage(
                 StorageContext.from_defaults(persist_dir=self.index_name),
                 #service_context=service_context,
             )
             print('reload index')
         else:
+            print('making index .....')
             documents = []
             print(self.input_dir)
             documents = SimpleDirectoryReader(input_dir=self.input_dir).load_data()
