@@ -13,6 +13,7 @@ except KeyError:
 
 @st.cache_resource
 def initialize_index():#index_name, documents_folder):
+    print('initilizing......')
     index_function = Index_function()
     query_engine = index_function.make_query_engine()
     return query_engine
