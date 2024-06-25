@@ -18,22 +18,12 @@ from llama_index.llms.openai import OpenAI
 index_name = "./saved_index"
 documents_folder = "./documents/MF"
 
-# api_key = st.secrets["api_key"]
-# os.environ["OPENAI_API_KEY"] = api_key
-# #index = initialize_index(index_name, documents_folder)
-
 try:
     value = os.environ["OPENAI_API_KEY"]
     print(f"キー の値: {value}")
 except KeyError:
     print(f"キー は環境変数に存在しません。")
     os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
-
-
-# print(os.environ["OPENAI_AI_KEY"])
-# if os.environ["OPENAI_API_KEY"] == None:
-#     api_key = st.secrets["api_key"]
-#     os.environ["OPENAI_API_KEY"] = api_key
 
 token_counter = TokenCountingHandler(
     tokenizer=tiktoken.encoding_for_model("gpt-3.5-turbo").encode
@@ -94,9 +84,11 @@ def query_index(_index, query_text):
 index = initialize_index(index_name, documents_folder)
 #query_index(index, 'summarize this document')
 
-#st.title("🦙 Llama Index Demo 🦙")
-st.title("Welcome to MF research Demo１")
+
+st.title("Welcome to MF research Demo11")
 st.write("PMDAのWeb公開資料にから回答を引き出します。")
+
+
 
 ## test
 #index = None
@@ -107,7 +99,7 @@ st.write("PMDAのWeb公開資料にから回答を引き出します。")
 # if index is None:
 #     st.warning("Please enter your api key first.")
 
-text = st.text_input("質問文:", value="MFの申請に必要な資料は何ですか。")
+text = st.text_input("質問文:", value="MFの申請時にヒト幹細胞を原材料として使用する際の注意点は?")
 
 if st.button("回答") and text is not None:
     response = query_index(index, text)
