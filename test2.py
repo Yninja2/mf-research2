@@ -3,13 +3,29 @@ import os
 import tiktoken
 import streamlit as st
 from index_functions import Index_function
+from llama_index.core import (
+    GPTVectorStoreIndex,
+    SimpleDirectoryReader,
+    ServiceContext,
+    StorageContext,
+    load_index_from_storage,
+    Settings,
+)
+from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
+#from langchain.chat_models import ChatOpenAI
+from openai import OpenAI
+from llama_index.llms.openai import OpenAI
 
 try:
     value = os.environ["OPENAI_API_KEY"]
     #print(f"キー の値: {value}")
 except KeyError:
     print(f"キー は環境変数に存在しません。")
+    print(st.secrets["api_key"])
     os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
+
+Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.2)
+#Settings.callback_manager = CallbackManager([token_counter])
 
 @st.cache_resource
 def initialize_index():#index_name, documents_folder):
