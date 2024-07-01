@@ -26,8 +26,17 @@ from llama_index.core.callbacks import(
 #from llama_index.extractors.entity import EntityExtractor
 from llama_index.core.node_parser import TokenTextSplitter
 from tenacity import ( retry, stop_after_attempt,  wait_random_exponential,)  # for exponential backoff
+import streamlit as st
 
 class Index_function:
+
+    try:
+        value = os.environ["OPENAI_API_KEY"]
+        #print(f"キー の値: {value}")
+    except KeyError:
+        print(f"キー は環境変数に存在しません。")
+        os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
+
     llama_debug_handler = LlamaDebugHandler()
     llama_debug_handler.get_event_pairs()
     #callback_manager = CallbackManager([llama_debug_handler])
