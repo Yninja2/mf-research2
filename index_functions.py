@@ -30,19 +30,20 @@ import streamlit as st
 
 class Index_function:
 
-    try:
-        value = os.environ["OPENAI_API_KEY"]
-        #print(f"キー の値: {value}")
-    except KeyError:
-        print(f"キー は環境変数に存在しません。")
-        os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
+    # try:
+    #     value = os.environ["OPENAI_API_KEY"]
+    #     #print(f"キー の値: {value}")
+    # except KeyError:
+    #     print(f"キー は環境変数に存在しません。")
+    #     os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
 
     llama_debug_handler = LlamaDebugHandler()
     llama_debug_handler.get_event_pairs()
     #callback_manager = CallbackManager([llama_debug_handler])
     #service_context = ServiceContext.from_defaults(callback_manager=callback_manager)
     Settings.callback_manager = CallbackManager([llama_debug_handler])
-    Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.2)
+    
+    ##Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.2)
 
     input_dir = "./documents/MF"
     index_name = "./saved_index"
