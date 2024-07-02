@@ -1,4 +1,6 @@
-https://www.pmda.go.jp/review-services/drug-reviews/master-files/0002.html #登録申請・届出手続きについて
-https://www.pmda.go.jp/review-services/drug-reviews/master-files/0008.html #原薬等登録原簿（MF）の公示について
-https://www.pmda.go.jp/review-services/drug-reviews/master-files/0005.html #各種様式等
-https://www.pmda.go.jp/review-services/drug-reviews/master-files/0006.html #各種関連通知
+This is the list of Crawling and getting  the pdf files from. PMDA site about MF regulation
+"https://www.pmda.go.jp/review-services/drug-reviews/master-files/0007.html",  #MF制度について　ベースページ
+"https://www.pmda.go.jp/review-services/drug-reviews/master-files/0002.html",  #登録申請・届出手続きについて
+"https://www.pmda.go.jp/review-services/drug-reviews/master-files/0008.html",  #原薬等登録原簿（MF）の公示
+"https://www.pmda.go.jp/review-services/drug-reviews/master-files/0005.html",  #各種様式等
+"https://www.pmda.go.jp/review-services/drug-reviews/master-files/0006.html",  #各種関連通知

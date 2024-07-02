@@ -12,16 +12,13 @@ from llama_index.core import (
     Settings,
 )
 from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
-#from langchain.chat_models import ChatOpenAI
-from openai import OpenAI
 from llama_index.llms.openai import OpenAI
 
+# setting for API_key of OpenAI
 try:
     value = os.environ["OPENAI_API_KEY"]
-    #print(f"キー の値: {value}")
 except KeyError:
     print(f"キー は環境変数に存在しません。")
-    print(st.secrets["api_key"])
     os.environ["OPENAI_API_KEY"] = st.secrets["api_key"]
 
 Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.2)
@@ -47,9 +44,10 @@ if st.button("回答") and text is not None:
     st.markdown(response)
     st.markdown('___________________________________')
     for item in response.source_nodes:
+        print(item)
         name = item.node.metadata['file_name'].split('.')[-2][4:] # file name extract
         url = 'https://www.pmda.go.jp/files/' + name + '.pdf'
-        text = item.node.text
+        text = item.node.text # extract source text
         st.markdown("### 根拠となる資料")
         st.markdown("### " + url)
         st.markdown("### 関連する文章")

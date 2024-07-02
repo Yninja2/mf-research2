@@ -105,7 +105,3 @@ class Index_function:
             #service_context = service_context)
         
         return query_engine
-
-    # def query(self, query_engine, query_txt):
-    #     response = query_engine.query(query_txt)
-    #     return response
