@@ -12,4 +12,4 @@
 
 pip install -r requirements.txt
 
-streamlit test2.py`
+streamlit run test2.py`
