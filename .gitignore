@@ -4,3 +4,5 @@ documents/
 old_source/
 __pycache__/
 LlamaTrail.ipynb
+*.pdf
+*.ipynb

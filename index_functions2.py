@@ -49,9 +49,10 @@ class Index_function:
         print(qdrant_client.get_collections())
         vector_store = QdrantVectorStore(client=qdrant_client, collection_name="MFdatabase")
         index = VectorStoreIndex.from_vector_store(vector_store=vector_store,)
+        print('embedding model', index._embed_model)
         query_engine = index.as_query_engine(
-            response_mode = 'compact',
-            similarity_top_k = 2,
+            #response_mode = 'compact',
+            similarity_top_k = 4, ## change from 2
             text_qa_template = self.qa_prompt_tmpl,
             verbose = True,)
             #service_context = service_context)

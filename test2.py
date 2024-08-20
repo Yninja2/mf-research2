@@ -2,7 +2,7 @@
 import os
 import tiktoken
 import streamlit as st
-from index_functions import Index_function
+from index_functions2 import Index_function
 from llama_index.core import (
     GPTVectorStoreIndex,
     SimpleDirectoryReader,
@@ -28,7 +28,7 @@ Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.2)
 def initialize_index():#index_name, documents_folder):
     print('initilizing......')
     index_function = Index_function()
-    query_engine = index_function.make_query_engine()
+    query_engine = index_function.set_query_engine_from_qdrant()#make_query_engine()
     return query_engine
 
 query_engine = initialize_index()
@@ -44,10 +44,15 @@ if st.button("回答") and text is not None:
     st.markdown(response)
     st.markdown('___________________________________')
     for item in response.source_nodes:
-        print(item)
+        #print(item)
         name = item.node.metadata['file_name'].split('.')[-2][4:] # file name extract
+        print('id', item.node.id_)
+        print('text', item.node.text)
+        print('filne_name', item.node.metadata['file_name'])
+        print('============================================================')
         url = 'https://www.pmda.go.jp/files/' + name + '.pdf'
         text = item.node.text # extract source text
+        #point_id = item.node
         st.markdown("### 根拠となる資料")
         st.markdown("### " + url)
         st.markdown("### 関連する文章")
