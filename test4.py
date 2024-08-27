@@ -13,7 +13,8 @@ from llama_index.core import (
 )
 from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
 from llama_index.llms.openai import OpenAI
-from pdf_functions import file_search_highlight_open, file_search_highlight_open_forStreamlit
+print('&&&&&&')
+from pdf_functions import file_search_highlight_open_forStreamlit # file_search_highlight_open_forStreamlit#, file_search_highlight_open, 
 
 # setting for API_key of OpenAI
 try:
@@ -58,15 +59,20 @@ if st.button("回答") and text is not None:
             print('text.....', item.node.text)
             file_name =item.node.metadata['file_name']
             print('filne_name.....', item.node.metadata['file_name'],i)
-            print('============================================================')
-            st.markdown(f"### 検索された文章 PDF no.**{i+1}**")
-            st.markdown(item.node.text)
+            #print('============================================================')
+            #st.markdown(f"### 検索された文章 PDF no.**{i+1}**")
+            
             pdf_path, highlitedpages = file_search_highlight_open_forStreamlit(item)
             if highlitedpages == []:
                 highlitedpages.append(1)
-            print('pdf_path', pdf_path, highlitedpages[0])
+                st.markdown(f"### 検索された文章 PDF no.**{i+1}** page. マーキングできず")
+            else:
+                st.markdown(f"### 検索された文章 PDF no.**{i+1}** page.**{highlitedpages[0]}**")
+            st.markdown(item.node.text)
+            #print('test4_pdf_path', pdf_path, highlitedpages[0])
             with tab[i+1]: 
                 display_pdf(pdf_path, highlitedpages[0]+1)
             st.markdown('___________________________________')
             file_list.append(file_name)
-            print(file_list)
+            #print(file_list)
+            print('==============================END')

@@ -9,3 +9,4 @@ LlamaTrail.ipynb
 *.json
 test3.py
 test_*.py
+*.txt
