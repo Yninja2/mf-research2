@@ -21,7 +21,7 @@ class Index_function:
         qdrant_key = os.environ["qdrant_key"]
     except KeyError:
         print(f"キー は環境変数に存在しません。")
-        qdrant_key = st.secrets["qdrant_key"]
+        qdrant_key = st.secrets["openai"]["qdrant_key"]
 
     llama_debug_handler = LlamaDebugHandler()
     llama_debug_handler.get_event_pairs()

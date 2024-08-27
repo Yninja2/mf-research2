@@ -10,27 +10,28 @@ import os
 
 SCOPES = ['https://www.googleapis.com/auth/drive']#['https://www.googleapis.com/auth/drive.file']
 SERVICE_ACCOUNT_FILE = r'gdrive.json'
-credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+#credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-# if os.path.exists('./grdive.json'):
-#   SERVICE_ACCOUNT_FILE = r'gdrive.json'
-#   credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+if os.path.exists('./gdrive.json'):
+  SERVICE_ACCOUNT_FILE = r'./gdrive.json'
+  credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-# else:
-#   print(f" json file is not exit")
-#   SERVICE_ACCOUNT_INFO = {
-#     "type": st.secrets["google"]["type"],
-#     "project_id": st.secrets["google"]["project_id"],
-#     "private_key_id": st.secrets["google"]["private_key_id"],
-#     "private_key": st.secrets["google"]["private_key"].replace('\\n', '\n'),
-#     "client_email": st.secrets["google"]["client_email"],
-#     "client_id": st.secrets["google"]["client_id"],
-#     "auth_uri": st.secrets["google"]["auth_uri"],
-#     "token_uri": st.secrets["google"]["token_uri"],
-#     "auth_provider_x509_cert_url": st.secrets["google"]["auth_provider_x509_cert_url"],
-#     "client_x509_cert_url": st.secrets["google"]["client_x509_cert_url"]
-#   }
-#   credentials = service_account.Credentials.from_service_account_info(SERVICE_ACCOUNT_INFO)
+else:
+  print(f" json file is not exit")
+  SERVICE_ACCOUNT_INFO = {
+    "type": st.secrets["google"]["type"],
+    "project_id": st.secrets["google"]["project_id"],
+    "private_key_id": st.secrets["google"]["private_key_id"],
+    "private_key": st.secrets["google"]["private_key"].replace('\\n', '\n'),
+    "client_email": st.secrets["google"]["client_email"],
+    "client_id": st.secrets["google"]["client_id"],
+    "auth_uri": st.secrets["google"]["auth_uri"],
+    "token_uri": st.secrets["google"]["token_uri"],
+    "auth_provider_x509_cert_url": st.secrets["google"]["auth_provider_x509_cert_url"],
+    "client_x509_cert_url": st.secrets["google"]["client_x509_cert_url"]
+  }
+  print("SERVICE INFO",SERVICE_ACCOUNT_INFO)
+  credentials = service_account.Credentials.from_service_account_info(SERVICE_ACCOUNT_INFO)
     
 # Google Drive APIサービスの構築
 service = build('drive', 'v3', credentials=credentials)
